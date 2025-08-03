@@ -1,0 +1,112 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - My WebApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            margin-top: 80px;
+            max-width: 400px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+          .hero {
+            background: url('images/banner.jpg') no-repeat center center/cover;
+            color: white;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+        .about {
+            padding: 40px 20px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <%@include file="ProjectName.jsp"%>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Index.jsp">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="Login.jsp">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="Register.jsp">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Login Form -->
+<div class="container d-flex justify-content-center">
+    <div class="form-container">
+        <h3 class="text-center mb-4">Login</h3>
+        <form action="Login-Authentication.jsp" method="post">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <div class="text-center mt-3">
+                <a href="Register.jsp">Don't have an account? Register</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div>
+      
+    </div>
+</div>
+
+<!-- About Section -->
+<div class="about container text-center">
+   </div>
+<!-- Footer -->
+<footer class="text-center">
+    <div class="container">
+        &copy; 2025 Chat Apps | All rights reserved.
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
