@@ -11,14 +11,14 @@ String address = request.getParameter("address");
 
 String query = "INSERT INTO users (first_name, last_name, email, password, mobile, address) VALUES (?, ?, ?, ?, ?, ?)";
 
-ResultSet rs = con.createStatement().executeQuery("SELECT COUNT(*) FROM users WHERE email = '" + email + "'");
+ResultSet rs =  getConnection().createStatement().executeQuery("SELECT COUNT(*) FROM users WHERE email = '" + email + "'");
 if (rs.next() && rs.getInt(1) > 0) {
 	out.println(
 	"<script>alert('Email already exists. Please use a different email.'); window.location.href='Register.jsp';</script>");
 	return;
 }
 
-ps = con.prepareStatement(query);
+PreparedStatement ps =  getConnection().prepareStatement(query);
 ps.setString(1, firstName);
 ps.setString(2, lastName);
 ps.setString(3, email);
