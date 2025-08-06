@@ -1,1 +1,1 @@
-<a class="navbar-brand" href="home.jsp">Chat Application</a>
+<a class="navbar-brand" href="Index.jsp">Chat Application</a>

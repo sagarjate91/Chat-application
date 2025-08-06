@@ -290,8 +290,8 @@ footer {
 												
 												<%
 												
-												String friends_list = "SELECT * FROM friend_requests where (sender_id="+Integer.parseInt(session.getAttribute("userId").toString())+" or receiver_id="+Integer.parseInt(session.getAttribute("userId").toString())+") and status='Accepted'";
-												ResultSet rs_friend_requests_list = getConnection().prepareStatement(friend_requests).executeQuery();
+												String friends_list = "SELECT * FROM friend_requests where (sender_id="+Integer.parseInt(session.getAttribute("userId").toString())+" or receiver_id="+Integer.parseInt(session.getAttribute("userId").toString())+") and status='accepted'";
+												ResultSet rs_friend_requests_list = getConnection().prepareStatement(friends_list).executeQuery();
 												int count_friend_requests_list = 1;
 												while(rs_friend_requests_list.next()) {
                                                     
@@ -311,13 +311,13 @@ footer {
 														if (status.equals("Online")) {
 															%>
 															
-															<td><a href="Friends_Chat.jsp?id=<%=rs_friend_requests_list.getInt("id")%>"><span
+															<td><a href="Friends_Chat.jsp?id=<%=Integer.parseInt(session.getAttribute("userId").toString())==rs_friend_requests_list.getInt("sender_id")?rs_friend_requests_list.getInt("receiver_id"):rs_friend_requests_list.getInt("sender_id") %>"><span
 																	class="badge bg-success">Start to chat</span></a></td>
 															<%
 														}else{
 															%>
 															
-															<td><a href="Friends_Chat.jsp?id=<%=rs_friend_requests_list.getInt("id")%>"><span
+															<td><a href="Friends_Chat.jsp?id=<%=Integer.parseInt(session.getAttribute("userId").toString())==rs_friend_requests_list.getInt("sender_id")?rs_friend_requests_list.getInt("receiver_id"):rs_friend_requests_list.getInt("sender_id")%>"><span
 																	class="badge bg-danger">Start to chat</span></a></td>
 															
 															<%
