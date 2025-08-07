@@ -175,10 +175,6 @@ footer {
 													<%
 													}
 													%>
-
-
-
-
 													<td><a
 														href="Friends_Request.jsp?receiverId=<%=rs.getInt("id")%>"><span
 															class="badge bg-success">Send</span></a></td>
@@ -374,6 +370,22 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+// Auto-refresh the messagesArea div every 5 seconds
+setInterval(function() {
+    fetch('Friends_Chat.jsp?id=<%= request.getParameter("id") %>&ajax=1')
+        .then(response => response.text())
+        .then(html => {
+            // Extract only the messagesArea content from the response
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newMessages = doc.getElementById('messagesArea');
+            if (newMessages) {
+                document.getElementById('messagesArea').innerHTML = newMessages.innerHTML;
+            }
+        });
+}, 1000);
+</script>
 </body>
 </html>
 

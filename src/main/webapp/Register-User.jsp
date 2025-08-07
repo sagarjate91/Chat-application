@@ -9,14 +9,14 @@ String password = request.getParameter("password");
 String mobile = request.getParameter("mobile");
 String address = request.getParameter("address");
 
-String query = "INSERT INTO users (first_name, last_name, email, password, mobile, address) VALUES (?, ?, ?, ?, ?, ?)";
 
-ResultSet rs =  getConnection().createStatement().executeQuery("SELECT COUNT(*) FROM users WHERE email = '" + email + "'");
-if (rs.next() && rs.getInt(1) > 0) {
-	out.println(
-	"<script>alert('Email already exists. Please use a different email.'); window.location.href='Register.jsp';</script>");
+ResultSet rs =  getConnection().createStatement().executeQuery("SELECT * FROM USERS WHERE email = '" + email + "'");
+if (rs.next()) {
+	out.println("<script>alert('Email already exists. Please use a different email.'); window.location.href='Register.jsp';</script>");
 	return;
 }
+
+String query = "INSERT INTO users(first_name, last_name, email, password, mobile, address) VALUES (?, ?, ?, ?, ?, ?)";
 
 PreparedStatement ps =  getConnection().prepareStatement(query);
 ps.setString(1, firstName);

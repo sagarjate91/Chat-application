@@ -78,7 +78,7 @@
             </div>
             <button type="submit" class="btn btn-success w-100">Register</button>
             <div class="text-center mt-3">
-                <a href="login.jsp">Already have an account? Login</a>
+                <a href="Login.jsp">Already have an account? Login</a>
             </div>
         </form>
     </div>
